@@ -120,21 +120,21 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-| | *Enter your response here...*  |
+| | *Simply by using JSON.stringify offered by JS. This make a json string*  |
 |Question | What is **npm**?  |
-| | *Enter your response here...*  |
+| | *NPM is a dependencies manager for the js file. For comparison we have composer for the php file. It's usefull for project because we can set a bunch of dependencies and the version we need. After that anybody can get our code and just make npm install for installing all needed dependencies without need to transfer all files. But the most important feature is the managment of dependencies for dependencies. This describe the needed dependencies for one dependencies and make a network of dependencies. This way we can know if we can update a dependencie, and what dependencies need to be updates in the same time. It is a centralized packet manager, all the dependencies are in internet to make it easy to get and to know what exist.*  |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
-| | *Enter your response here...*  |
+| | *This flag is usefull to save the dependencies in our package.json file. This file contains all our dependencies.*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | *Enter your response here...*  |
+| | *Like I said before, it's very convenient because we can search an existing package on the website.*  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | *Enter your response here...*  |
+| | *We can either make an compliant RFC4122 function OR we can get the magnific uuid package that is compliant.*  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | *Enter your response here...*  |
+| | *We can very easily make a periodic function. We just need to define a function in our class and to call this one with the setInterval js function in the constructor*  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | *Enter your response here...*  |
+| | *For emit some UDP datagrams we need a standard Node.js module that is dgram*  |
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *Enter your response here...*  |
+| | *By accessing the argv properties od process. the process element is the actual process of node.*  |
 
 
 ## Task 3: package the "musician" app in a Docker image
