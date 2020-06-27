@@ -142,7 +142,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we **define and build our own Docker image**?|
-| | *We have to define a dockerfile. *  |
+| | *We have to define a dockerfile.To build we use docker build --tag res/musician --file ./docker/image-musician/Dockerfile ./docker/image-musician/ *  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
 | | *For passing the argument from docker to our js, we just need to add that ENTRYPOINT in our dockerfile. We define here where the args are going when running the container.*  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
