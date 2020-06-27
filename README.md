@@ -106,13 +106,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 | | <img src="images/truc-machin.gif"> |
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | *It's the musicians who will send UDP datagrams. They will emmit UDP datagrams in multicast to everyone who want to listen. They will emit each time they make a sound* |
+| | *It's the musicians who will send UDP datagrams. They will emit UDP datagrams in multi-cast to everyone who want to listen. They will emit each time they make a sound* |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
-| | *The auditor will listen on the multicast for reception of datagrams. Every time he will receive datagram he will stock the musician and the actual datetime* |
+| | *The auditor will listen on the multi-cast for reception of datagrams. Every time he will receive datagram he will stock the musician and the actual date-time* |
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *We will need 2 important things, the sound that was emit and a uuid or something to identify who send the datagram. Otherwhile we won't be able to know which musician emitted the sound and we don't will be able to know if a musician is always up.* |
+| | *We will need 2 important things, the sound that was emit and a uuid or something to identify who send the datagram. Otherwise we won't be able to know which musician emitted the sound and we don't will be able to know if a musician is always up.* |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | *For the Auditor part we will use a dynamic array to stock the information on who his active. For the Musician we will use ajs class to define the musician. Ther wille be multiple information but most important are: a upadte function, his uuid, the type of instrument and the sound emitted* |
+| | *For the Auditor part we will use a dynamic array (Map) to store the information on who his active or not. A js class will define the Musicians. This class will store multiple informations and functions; but the most important are: an update function, his uuid, the type of instrument and the sound emitted.<br />These structures will be updated every time a musician plays his instrument and every time the a TCP connection is made to the auditor.* |
 
 
 ## Task 2: implement a "musician" Node.js application
@@ -122,9 +122,9 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
 | | *Simply by using JSON.stringify offered by JS. This make a json string*  |
 |Question | What is **npm**?  |
-| | *NPM is a dependencies manager for the js file. For comparison we have composer for the php file. It's usefull for project because we can set a bunch of dependencies and the version we need. After that anybody can get our code and just make npm install for installing all needed dependencies without need to transfer all files. But the most important feature is the managment of dependencies for dependencies. This describe the needed dependencies for one dependencies and make a network of dependencies. This way we can know if we can update a dependencie, and what dependencies need to be updates in the same time. It is a centralized packet manager, all the dependencies are in internet to make it easy to get and to know what exist.* POIL |
+| | *NPM is a dependencies manager for the js file. For comparison we have composer for the php files. It's useful for project because we can set a bunch of dependencies and the version we need. After that anybody can get our code and just make npm install for installing all needed dependencies without the need to transfer all the files. But the most important feature is the management of dependencies redundancies. This describes the needed dependencies for one dependencies and makes a network of dependencies. This way we can know if we can update a dependence, and what dependencies need to be updates in the same time. It is a centralized packet manager, all the dependencies are on the Internet to make it easy to get and to know what exist.* POIL |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
-| | *This flag is usefull to save the dependencies in our package.json file. This file contains all our dependencies.*  |
+| | *the `npm install` command allows us to install the required dependency. the flag `--save` is useful to save the dependencies in our package.json file. This file contains all our dependencies.* |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
 | | *Like I said before, it's very convenient because we can search an existing package on the website.*  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
@@ -132,9 +132,9 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
 | | *We can very easily make a periodic function. We just need to define a function in our class and to call this one with the setInterval js function in the constructor*  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | *For emit some UDP datagrams we need a standard Node.js module that is dgram*  |
+| | *In order to emit UDP datagrams, we can use the standard Node.js module : dgram* |
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *By accessing the argv properties of _process_. the process element is the actual process of node.*  |
+| | *By accessing the argv properties of `process`* |
 
 
 ## Task 3: package the "musician" app in a Docker image
@@ -148,11 +148,11 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | After building our Docker image, how do we use it to **run containers**?  |
 | | *We use the docker run command and we specified the name of our image and the instrument. like that __docker run -d res/musician piano__*  |
 |Question | How do we get the list of all **running containers**?  |
-| | *You can do docker ps and you have the list of running container *  |
+| | *You can do `docker ps` and you have the list of running container* |
 |Question | How do we **stop/kill** one running container?  |
 | | *after getting the name of our __docker ps__ with the docker ps cmd, we do __docker kill [NAME_CONTAINER]__ For stopping one we use the __docker stop__ cmd*  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | *Enter your response here...*  |
+| | *With the `tcpdump` function and look in the traffic that is reported. (WireShark would also be an option)* |
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -160,13 +160,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | *Yes...* It is what is done for this exercise. |
+| | *We have to subscribe to the multicast port and address*     |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
 | | *We can use the Map object for stocking our active musician.* |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
-| | *It can be convienent for storing the date and output in a particular format for user.* |
+| | *It can be convenient for storing the date and output in a particular format for the user. Is is also quite useful in order to perform date-time manipulations and operations.* |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *We can do that at 2 specific points. When we receive a datagram we can get rid of inactive players by parsing all the Map. And th last part, when a user request to get active musician. This way we just need to return array after that.* |
+| | *To get rid of the inactive players, we go through the Map containing all the players, and remove the ones that have not been active longer than 5 seconds<br />This is done at two moments : when the auditor receives a "sound"  and when a TCP connection is made to the auditor.* |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
 | | We used the node.js `net` library. This library allows us to create the TCP server, allowing us to subscribe to events (a connexion) and to respond to them with a custom function. |
 
