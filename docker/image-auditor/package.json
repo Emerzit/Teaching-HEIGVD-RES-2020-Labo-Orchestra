@@ -8,5 +8,6 @@
     "start": "node /opt/app/auditor.js"
   },
   "dependencies": {
+    "moment": "^2.27.0"
   }
 }
