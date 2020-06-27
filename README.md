@@ -104,7 +104,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | --- | --- |
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
-| | *Insert your diagram here...* |
+| | <img src="images/truc-machin.gif"> |
 |Question | Who is going to **send UDP datagrams** and **when**? |
 | | *It's the musicians who will send UDP datagrams. They will emmit UDP datagrams in multicast to everyone who want to listen. They will emit each time they make a sound* |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
@@ -176,7 +176,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | we run the `validate.sh`file and admire the wonderful validation approval :<br /><img src="lube.jpg"  alt="validation"> |
+| | we run the `validate.sh`file and admire the wonderful validation approval :<br /><img src="images/imgpsh_mobile_save.jpg"  alt="validation"> |
 
 
 
