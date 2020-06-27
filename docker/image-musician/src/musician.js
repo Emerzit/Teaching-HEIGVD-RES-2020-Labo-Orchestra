@@ -1,5 +1,5 @@
 /*
- This program simulates a  musician, which emit a sound  with his instrument
+ This program simulates a musician, which emit a sound with his instrument
   on a multicast group. Other programs can join the group and listen to the sound.The sound
    are transported in json payloads with the following format:
    {"uuid":aa7d8cb3-a15f-4f06-a0eb-b8feb6244a60,"sound":"pouet"}
@@ -31,7 +31,7 @@ function Musician(instrument) {
 
     //npm dependancie https://github.com/uuidjs/uuid
     const {v1: uuidv1} = require('uuid');
-    this.uuid=uuidv1();
+    this.uuid = uuidv1();
 
     /*
        * We will simulate a sound production on a regular basis. That is something that
@@ -74,16 +74,16 @@ function Musician(instrument) {
  */
 if (process.argv.length !== 3) {
     console.log("Oh no, it's seem that you don't how to use this program !");
-    console.log("We need exactly 1 argument, not less, not more.");s
+    console.log("We need exactly 1 argument, not less, not more.");
     return;
 }
 let instrument = process.argv[2];
 if (!(instrument in protocol.INSTRUMENTS)) {
     console.log("We need an valid instrument, not your \"".concat(instrument, "\" thing."));
     console.log("Here the list if you needed:");
-    protocol.INSTRUMENTS.forEach(function (item, index) {
-        console.log(" - ".concat(index));
-    });
+    for (instrument in protocol.INSTRUMENTS){
+            console.log(" - ".concat(instrument));
+    }
     return;
 }
 /*

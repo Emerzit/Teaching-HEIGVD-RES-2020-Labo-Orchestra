@@ -122,7 +122,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
 | | *Simply by using JSON.stringify offered by JS. This make a json string*  |
 |Question | What is **npm**?  |
-| | *NPM is a dependencies manager for the js file. For comparison we have composer for the php file. It's usefull for project because we can set a bunch of dependencies and the version we need. After that anybody can get our code and just make npm install for installing all needed dependencies without need to transfer all files. But the most important feature is the managment of dependencies for dependencies. This describe the needed dependencies for one dependencies and make a network of dependencies. This way we can know if we can update a dependencie, and what dependencies need to be updates in the same time. It is a centralized packet manager, all the dependencies are in internet to make it easy to get and to know what exist.*  |
+| | *NPM is a dependencies manager for the js file. For comparison we have composer for the php file. It's usefull for project because we can set a bunch of dependencies and the version we need. After that anybody can get our code and just make npm install for installing all needed dependencies without need to transfer all files. But the most important feature is the managment of dependencies for dependencies. This describe the needed dependencies for one dependencies and make a network of dependencies. This way we can know if we can update a dependencie, and what dependencies need to be updates in the same time. It is a centralized packet manager, all the dependencies are in internet to make it easy to get and to know what exist.* POIL |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
 | | *This flag is usefull to save the dependencies in our package.json file. This file contains all our dependencies.*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
@@ -134,7 +134,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | In Node.js, how can we **emit UDP datagrams**? |
 | | *For emit some UDP datagrams we need a standard Node.js module that is dgram*  |
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *By accessing the argv properties od process. the process element is the actual process of node.*  |
+| | *By accessing the argv properties of _process_. the process element is the actual process of node.*  |
 
 
 ## Task 3: package the "musician" app in a Docker image
@@ -142,15 +142,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we **define and build our own Docker image**?|
-| | *Enter your response here...*  |
+| | *We have to define a dockerfile. *  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | *Enter your response here...*  |
+| | *For passing the argument from docker to our js, we just need to add that ENTRYPOINT in our dockerfile. We define here where the args are going when running the container.*  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
-| | *Enter your response here...*  |
+| | *We use the docker run command and we specified the name of our image and the instrument. like that __docker run -d res/musician piano__*  |
 |Question | How do we get the list of all **running containers**?  |
-| | *Enter your response here...*  |
+| | *You can do docker ps and you have the list of running container *  |
 |Question | How do we **stop/kill** one running container?  |
-| | *Enter your response here...*  |
+| | *after getting the name of our __docker ps__ with the docker ps cmd, we do __docker kill [NAME_CONTAINER]__ For stopping one we use the __docker stop__ cmd*  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
 | | *Enter your response here...*  |
 
@@ -162,11 +162,11 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
 | | *Enter your response here...*  |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
-| | *Enter your response here...* |
+| | *We can use the Map object for stocking our active musician.* |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
-| | *Enter your response here...* |
+| | *It can be convienent for storing the date and output in a particular format for user.* |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | *We can do that at 2 specific points. When we receive a datagram we can get rid of inactive players by parsing all the Map. And th last part, when a user request to get active musician. This way we just need to return array after that.* |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
 | | *Enter your response here...* |
 

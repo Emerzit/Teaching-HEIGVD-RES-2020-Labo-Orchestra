@@ -1,0 +1,12 @@
+{
+  "name": "docker_res_orchestra_auditor",
+  "version": "1.0.0",
+  "description": "Last labo of RES",
+  "author": "Jérémy Corbaz <jeremy.corbaz@heig-vd.ch>, Edouard de Chambrier <edouard.dechambrier@heig-vd.ch>",
+  "main": "/opt/app/auditor.js",
+  "scripts": {
+    "start": "node /opt/app/auditor.js"
+  },
+  "dependencies": {
+  }
+}
