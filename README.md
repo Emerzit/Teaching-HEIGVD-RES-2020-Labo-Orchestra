@@ -142,7 +142,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we **define and build our own Docker image**?|
-| | *We have to define a dockerfile.To build we use docker build --tag res/musician --file ./docker/image-musician/Dockerfile ./docker/image-musician/ *  |
+| | *We have to define a Dockerfile. To build we use :* `docker build --tag res/musician --file ./docker/image-musician/Dockerfile ./docker/image-musician/`<br />`docker build`: docker command to build the image<br />`--tag res/musician`: the name of our image<br />`--file ./docker/image-musician/Dockerfile ./docker/image-musician/` :  name and place of the Dockerfile and its context. |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
 | | *For passing the argument from docker to our js, we just need to add that ENTRYPOINT in our dockerfile. We define here where the args are going when running the container.*  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
@@ -160,7 +160,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | *Enter your response here...*  |
+| | *Yes...* It is what is done for this exercise. |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
 | | *We can use the Map object for stocking our active musician.* |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
@@ -168,7 +168,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | When and how do we **get rid of inactive players**?  |
 | | *We can do that at 2 specific points. When we receive a datagram we can get rid of inactive players by parsing all the Map. And th last part, when a user request to get active musician. This way we just need to return array after that.* |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
-| | *Enter your response here...* |
+| | We used the node.js `net` library. This library allows us to create the TCP server, allowing us to subscribe to events (a connexion) and to respond to them with a custom function. |
 
 
 ## Task 5: package the "auditor" app in a Docker image
@@ -176,7 +176,8 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | *Enter your response here...* |
+| | we run the `validate.sh`file and admire the wonderful validation approval :<br /><img src="lube.jpg"  alt="validation"> |
+
 
 
 ## Constraints
