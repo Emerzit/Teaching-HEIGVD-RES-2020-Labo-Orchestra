@@ -1,0 +1,13 @@
+{
+  "name": "docker_res_orchestra_musician",
+  "version": "1.0.0",
+  "description": "Last labo of RES",
+  "author": "Jérémy Corbaz <jeremy.corbaz@heig-vd.ch>, Edouard de Chambrier <edouard.dechambrier@heig-vd.ch>",
+  "main": "/opt/app/musician.js",
+  "scripts": {
+    "start": "node /opt/app/musician.js"
+  },
+  "dependencies": {
+    "uuid": "^8.2.0"
+  }
+}

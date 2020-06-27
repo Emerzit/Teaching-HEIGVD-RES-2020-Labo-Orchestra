@@ -31,7 +31,7 @@ function Musician(instrument) {
 
     //npm dependancie https://github.com/uuidjs/uuid
     const {v1: uuidv1} = require('uuid');
-    uuidv1();
+    this.uuid=uuidv1();
 
     /*
        * We will simulate a sound production on a regular basis. That is something that
@@ -46,7 +46,7 @@ function Musician(instrument) {
               */
         let sound = {
             uuid: this.uuid,
-            sound: protocol.getSound(instrument),
+            sound: protocol.INSTRUMENTS[instrument],
         };
         let payload = JSON.stringify(sound);
 
@@ -72,12 +72,13 @@ function Musician(instrument) {
  * Let's get the music properties from the command line attributes
  * Some error handling for argument
  */
-if (process.argv.length !== 2) {
-    console.log("Oh no, it's seem that you don't how to use this program !")
+if (process.argv.length !== 3) {
+    console.log("Oh no, it's seem that you don't how to use this program !");
+    console.log("We need exactly 1 argument, not less, not more.");s
     return;
 }
 let instrument = process.argv[2];
-if (!protocol.INSTRUMENTS.includes(instrument)) {
+if (!(instrument in protocol.INSTRUMENTS)) {
     console.log("We need an valid instrument, not your \"".concat(instrument, "\" thing."));
     console.log("Here the list if you needed:");
     protocol.INSTRUMENTS.forEach(function (item, index) {
